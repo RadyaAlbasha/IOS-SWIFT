@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="odv-fr-erT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="odv-fr-erT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -218,7 +218,7 @@
                     <navigationItem key="navigationItem" id="nZP-TV-Mg9">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="tfk-5f-Fs2">
                             <connections>
-                                <segue destination="yHO-ML-AAC" kind="push" id="DPx-3p-CV3"/>
+                                <action selector="AddMovie:" destination="D4s-Fn-N6L" id="jbi-yG-SiR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -253,7 +253,4 @@
             <point key="canvasLocation" x="-703.20000000000005" y="41.829085457271368"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="DPx-3p-CV3"/>
-    </inferredMetricsTieBreakers>
 </document>

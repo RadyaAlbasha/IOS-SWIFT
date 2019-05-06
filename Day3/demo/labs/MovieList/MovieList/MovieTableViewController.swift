@@ -8,7 +8,8 @@
 
 import UIKit
 
-class MovieTableViewController: UITableViewController {
+class MovieTableViewController: UITableViewController,AddMovieProtocol {
+    
     var moviesArr : Array<Movie>?
     var movie = Movie()
     override func viewDidLoad() {
@@ -57,6 +58,10 @@ class MovieTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    func addNewMovie(newMovie: Movie) {
+        moviesArr?.append(newMovie)
+        self.tableView.reloadData()
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -76,6 +81,9 @@ class MovieTableViewController: UITableViewController {
         // Configure the cell...
         cell.textLabel?.text = moviesArr![indexPath.row].title
         cell.imageView?.image = UIImage(named: moviesArr![indexPath.row].image!)
+        if   cell.imageView?.image == nil {
+             cell.imageView?.image = UIImage(named: ("apple.png"))
+        }
         return cell
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -88,6 +96,7 @@ class MovieTableViewController: UITableViewController {
        else
         {
             let addMVC = segue.destination as! AddMovieViewController
+            addMVC.firstVC=self
         }
     }
 

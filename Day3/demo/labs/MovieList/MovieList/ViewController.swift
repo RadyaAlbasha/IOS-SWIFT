@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var myImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
@@ -25,11 +25,16 @@ class ViewController: UIViewController {
         genreLabel.text = ""
         for g in 0..<(movie.genor?.count)!{
             genreLabel.text?.append((movie.genor?[g])!);
-            genreLabel.text?.append(" , ");
+            if g != (movie.genor?.count)! - 1{
+                genreLabel.text?.append(" , ");
+            }
         }
         myImage.image = UIImage(named: (movie.image)!)
+        if  myImage.image == nil {
+            myImage.image = UIImage(named: ("apple.png"))
+        }
     }
-
-
+    
+    
 }
 

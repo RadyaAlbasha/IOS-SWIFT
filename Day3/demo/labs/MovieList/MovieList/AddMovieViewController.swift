@@ -20,22 +20,34 @@ class AddMovieViewController: UIViewController {
     
     @IBOutlet weak var gonreText: UITextField!
     var movie = Movie()
+     var firstVC : AddMovieProtocol?
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        movie.title = titleText.text
-        movie.releaseYear = Int(releasText.text!)!
-        movie.genor = [gonreText.text] as? [String]
-        movie.image=imageText.text
-        movie.rating = ratingText.text
+        titleText.text = ""
+        releasText.text = ""
+        gonreText.text = ""
+        imageText.text = ""
+        ratingText.text = ""
+       /**/
         // Do any additional setup after loading the view.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let movieVC = segue.destination as! MovieTableViewController
-        //movieVC.firstVC=self
-        movieVC.movie = movie
+    @IBAction func AddMovie(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+        
+        if(releasText.text != "" && titleText.text != ""){
+            movie.title = titleText.text
+            movie.releaseYear = Int(releasText.text!)!
+            movie.genor = gonreText.text?.components(separatedBy: " , ")//[gonreText.text] as? [String]
+            print(movie.genor)
+            movie.image=imageText.text
+            movie.rating = ratingText.text
+            firstVC?.addNewMovie(newMovie: movie)
+        }
+        
     }
+    
     /*
     // MARK: - Navigation
 
